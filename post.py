@@ -18,7 +18,7 @@ class Post:
     @staticmethod
     def find(post_id):
         with DB() as db:
-            row = db.execute('SELECT * FROM posts WHERE post_id = ?', (post_id,)).fetchone()
+            row = db.execute('SELECT * FROM posts WHERE post_id = ?', (post_id)).fetchone()
             if row is None:
                 return
             return Post(*row)
